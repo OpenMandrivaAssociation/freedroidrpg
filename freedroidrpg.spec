@@ -1,6 +1,6 @@
 %define name	freedroidrpg
 %define	oname	freedroidRPG
-%define version	0.10.0
+%define version	0.10.1
 %define release	%mkrel 1
 %define	Summary	A Diablo clone with the Tux as hero and the MS as evil power
 
@@ -46,15 +46,15 @@ follows:
   the classical version.  I'd like to appologize to all 56K modem owners at
   this point.
 
-%package -n	%{name}-voicesamples
-Summary:	Voice samples for Freedroid RPG
-Group:		Games/Adventure
-Requires:	%{name}
-Obsoletes:	%{oname}-voicesamples
-Provides:	%{oname}-voicesamples
+#%package -n	%{name}-voicesamples
+#Summary:	Voice samples for Freedroid RPG
+#Group:		Games/Adventure
+#Requires:	%{name}
+#Obsoletes:	%{oname}-voicesamples
+#Provides:	%{oname}-voicesamples
 
-%description -n	%{name}-voicesamples
-This contains optional voice samples used by Freedroid RPG.
+#%description -n	%{name}-voicesamples
+#This contains optional voice samples used by Freedroid RPG.
 
 %prep
 %setup -q
@@ -63,70 +63,48 @@ rm -rf `find -name .xvpics`
 
 %build
 %configure2_5x	--bindir=%{_gamesbindir} \
-		--datadir=%{_gamesdatadir} \
-		--x-includes=%{_prefix}/X11R6/include \
-		--x-libraries=%{_prefix}/X11R6/%{_lib} \
-		--with-x \
-		LDFLAGS="-L%{_prefix}/X11R6/%{_lib}"
+		--datadir=%{_gamesdatadir}
 make clean
 %make
 
 %install
-%{__rm} -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %{makeinstall_std}
 
 # Install voice samples.
 #%{__tar} -xjC $RPM_BUILD_ROOT%{_gamesdatadir}/%{name}/sound/speeches -f %{SOURCE1}
 
-# Create menu entry.
-%{__install} -d $RPM_BUILD_ROOT%{_menudir}
-%{__cat} <<EOF > $RPM_BUILD_ROOT%{_menudir}/%{name}
-?package(%{name}):command="%{_gamesbindir}/%{oname}" \
-		icon=%{name}.png \
-		needs="x11" \
-		section="More Applications/Games/Adventure" \
-		title="FreedroidRPG"\
-		longtitle="%{Summary}" xdg="true"
-EOF
-mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
-cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop << EOF
+install -d %{buildroot}%{_datadir}/applications
+cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
 [Desktop Entry]
 Encoding=UTF-8
 Name=FreedroidRPG
-Comment=%Summary
+Comment=%{Summary}
 Exec=%{_gamesbindir}/%{oname}
-Icon=%name
+Icon=%{name}
 Terminal=false
 Type=Application
 StartupNotify=true
 Categories=X-MandrivaLinux-MoreApplications-Games-Adventure;Game;AdventureGame;
 EOF
 
-
-%{__install} %{SOURCE11} -D $RPM_BUILD_ROOT%{_miconsdir}/%{name}.png
-%{__install} %{SOURCE12} -D $RPM_BUILD_ROOT%{_iconsdir}/%{name}.png
-%{__install} %{SOURCE13} -D $RPM_BUILD_ROOT%{_liconsdir}/%{name}.png
+install %{SOURCE11} -D %{buildroot}%{_miconsdir}/%{name}.png
+install %{SOURCE12} -D %{buildroot}%{_iconsdir}/%{name}.png
+install %{SOURCE13} -D %{buildroot}%{_liconsdir}/%{name}.png
 
 %clean
-%{__rm} -rf $RPM_BUILD_ROOT
-
-%post
-%{update_menus}
-
-%postun
-%{clean_menus}
+rm -rf %{buildroot}
 
 %files -n %{name}
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
-%_datadir/applications/mandriva*
-%{_menudir}/%{name}
+%{_datadir}/applications/mandriva*
 %{_iconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
 %{_miconsdir}/%{name}.png
 %dir %{_gamesdatadir}/%{name}
 %dir %{_gamesdatadir}/%{name}/sound
-%dir %{_gamesdatadir}/%{name}/sound/speeches
+#%dir %{_gamesdatadir}/%{name}/sound/speeches
 %{_gamesdatadir}/%{name}/graphics
 %{_gamesdatadir}/%{name}/map
 %{_gamesdatadir}/%{name}/sound/effects
@@ -136,8 +114,6 @@ EOF
 %defattr(755,root,root,755)
 %{_gamesbindir}/*
 
-%files -n %{name}-voicesamples
-%defattr(644,root,root,755)
-%{_gamesdatadir}/%{name}/sound/speeches/*
-
-
+#%files -n %{name}-voicesamples
+#%defattr(644,root,root,755)
+#%{_gamesdatadir}/%{name}/sound/speeches/*
