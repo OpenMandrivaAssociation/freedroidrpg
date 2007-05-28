@@ -1,7 +1,7 @@
 %define name	freedroidrpg
 %define	oname	freedroidRPG
 %define version	0.10.1
-%define release	%mkrel 1
+%define release	%mkrel 2
 %define	Summary	A Diablo clone with the Tux as hero and the MS as evil power
 
 Summary:	%{Summary}
@@ -94,6 +94,12 @@ install %{SOURCE13} -D %{buildroot}%{_liconsdir}/%{name}.png
 
 %clean
 rm -rf %{buildroot}
+
+%post
+%{update_menus}
+
+%postun
+%{clean_menus}
 
 %files -n %{name}
 %defattr(644,root,root,755)
