@@ -1,6 +1,6 @@
 %define name	freedroidrpg
 %define	oname	freedroidRPG
-%define version	0.10.2
+%define version	0.10.3
 %define release	%mkrel 1
 %define	Summary	A Diablo clone with the Tux as hero and the MS as evil power
 
@@ -110,6 +110,7 @@ rm -rf %{buildroot}
 %dir %{_gamesdatadir}/%{name}
 %dir %{_gamesdatadir}/%{name}/sound
 #%dir %{_gamesdatadir}/%{name}/sound/speeches
+%{_gamesdatadir}/%{name}/sound/*
 %{_gamesdatadir}/%{name}/graphics
 %{_gamesdatadir}/%{name}/map
 %{_gamesdatadir}/%{name}/sound/effects
