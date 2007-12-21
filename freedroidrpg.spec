@@ -21,6 +21,7 @@ BuildRequires:	SDL_image-devel SDL_net-devel SDL_mixer-devel
 BuildRequires:	gtk+-devel Mesa-common-devel
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
+Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Obsoletes:	%{oname}
 Provides:	%{oname} = %{version}-%{release}
 
