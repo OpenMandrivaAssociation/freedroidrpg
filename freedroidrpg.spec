@@ -94,11 +94,15 @@ install %{SOURCE13} -D %{buildroot}%{_liconsdir}/%{name}.png
 %clean
 rm -rf %{buildroot}
 
+%if %mdkversion < 200900
 %post
 %{update_menus}
+%endif
 
+%if %mdkversion < 200900
 %postun
 %{clean_menus}
+%endif
 
 %files -n %{name}
 %defattr(644,root,root,755)
