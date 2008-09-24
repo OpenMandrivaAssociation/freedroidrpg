@@ -1,7 +1,7 @@
 %define name	freedroidrpg
 %define	oname	freedroidRPG
-%define version	0.10.3
-%define release	%mkrel 3
+%define version	0.11
+%define release	%mkrel 1
 %define	Summary	A Diablo clone with the Tux as hero and the MS as evil power
 
 Summary:	%{Summary}
@@ -14,7 +14,6 @@ Source0:	%{name}-%{version}.tar.bz2
 Source11:	%{name}-16x16.png
 Source12:	%{name}-32x32.png
 Source13:	%{name}-48x48.png
-#Patch:		freedroidRPG-multiline-string.patch.bz2
 License:	GPL
 Group:		Games/Adventure
 BuildRequires:	SDL_image-devel SDL_net-devel SDL_mixer-devel
@@ -46,19 +45,8 @@ follows:
   the classical version.  I'd like to appologize to all 56K modem owners at
   this point.
 
-#%package -n	%{name}-voicesamples
-#Summary:	Voice samples for Freedroid RPG
-#Group:		Games/Adventure
-#Requires:	%{name}
-#Obsoletes:	%{oname}-voicesamples
-#Provides:	%{oname}-voicesamples
-
-#%description -n	%{name}-voicesamples
-#This contains optional voice samples used by Freedroid RPG.
-
 %prep
 %setup -q
-#%patch -p1 -b .strings
 rm -rf `find -name .xvpics`
 
 %build
@@ -71,9 +59,6 @@ make clean
 rm -rf %{buildroot}
 %{makeinstall_std}
 
-# Install voice samples.
-#%{__tar} -xjC $RPM_BUILD_ROOT%{_gamesdatadir}/%{name}/sound/speeches -f %{SOURCE1}
-
 install -d %{buildroot}%{_datadir}/applications
 cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
 [Desktop Entry]
@@ -84,7 +69,7 @@ Icon=%{name}
 Terminal=false
 Type=Application
 StartupNotify=true
-Categories=X-MandrivaLinux-MoreApplications-Games-Adventure;Game;AdventureGame;
+Categories=Game;AdventureGame;
 EOF
 
 install %{SOURCE11} -D %{buildroot}%{_miconsdir}/%{name}.png
@@ -113,17 +98,11 @@ rm -rf %{buildroot}
 %{_miconsdir}/%{name}.png
 %dir %{_gamesdatadir}/%{name}
 %dir %{_gamesdatadir}/%{name}/sound
-#%dir %{_gamesdatadir}/%{name}/sound/speeches
 %{_gamesdatadir}/%{name}/sound/*
 %{_gamesdatadir}/%{name}/graphics
 %{_gamesdatadir}/%{name}/map
-%{_gamesdatadir}/%{name}/sound/effects
-%{_gamesdatadir}/%{name}/sound/music
 %{_gamesdatadir}/%{name}/dialogs
+%{_gamesdatadir}/%{name}/locale
 %{_mandir}/man6/%{oname}.6*
 %defattr(755,root,root,755)
 %{_gamesbindir}/*
-
-#%files -n %{name}-voicesamples
-#%defattr(644,root,root,755)
-#%{_gamesdatadir}/%{name}/sound/speeches/*
