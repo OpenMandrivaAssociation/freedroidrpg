@@ -25,25 +25,27 @@ Obsoletes:	%{oname}
 Provides:	%{oname} = %{version}-%{release}
 
 %description
-The Freedroid RPG is an extension/modification of the classical freedroid
-engine into an RPG.  The main differences to the classical version are as
-follows:
+FreeDroidRPG is a free isometric RPG game inspired by elements of Diablo and
+Fallout. Originally based on FreeDroid Classic, this project now has vastly deviated
+from its parent.
 
-* The Tux is the main character of the rpg.  He is not displayed as a ball like
-  in Freedroid but rather as an animated character, while other droids and
-  humans in the game are still represented as the balls with some number or
-  code in them.
-* Dialogs and chatting with friendly droids and humans:  Multiple-choice menus
-  and voice samples (with subtitles for those without sound).
-* Melee weapons, armour and other items to be equipped have been added.
-* An automap feature was added.
-* Saving and loading of games.
-* A shop to trade things.
-* Controls are different:  Mouse can be used to do everything.  Joystick is not
-  supported for moving around any more.
-* The archive size (including sound samples) is about 10 times as big as for
-  the classical version.  I'd like to appologize to all 56K modem owners at
-  this point.
+This game tells the story of a world destroyed by a conflict between the bots
+and their human masters. Play as Tux in a quest to save the world from the murderous
+rebel bots who know no mercy. You get to choose which path you wish to follow, and
+freedom of choice is everywhere in the game.
+
+FreeDroidRPG features a complete real time combat system with melee and ranged
+weapons, fairly similar to the proprietary game Diablo. There also is an 
+innovative system of magic, with features such as forced casting and over 20 spells.
+You can use over 50 different kinds of items and fight countless enemies on
+your way to your destiny.
+
+We have an advanced dialogue system, which aims at being at least on par with
+Fallout's. The dialogues in the game represent a large part of the gameplay.
+Finally, if guns are too inaccurate and blades too messy, you can always take
+over your enemies and have them fight on your side."
+
+
 
 %prep
 %setup -q
