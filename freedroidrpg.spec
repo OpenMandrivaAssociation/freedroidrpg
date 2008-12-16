@@ -1,8 +1,8 @@
 %define name	freedroidrpg
 %define	oname	freedroidRPG
 %define version	0.11.1
-%define release	%mkrel 1
-%define	Summary	A Diablo clone with the Tux as hero and the MS as evil power
+%define release	%mkrel 2
+%define	Summary	A Diablo clone with the Tux as hero in a world of rampaging robots
 
 Summary:	%{Summary}
 Name:		%{name}
