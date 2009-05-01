@@ -54,6 +54,7 @@ over your enemies and have them fight on your side."
 rm -rf `find -name .xvpics`
 
 %build
+autoreconf -fi
 %configure2_5x	--bindir=%{_gamesbindir} \
 		--datadir=%{_gamesdatadir}
 make clean
