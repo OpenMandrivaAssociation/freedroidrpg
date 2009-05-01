@@ -1,6 +1,6 @@
 %define name	freedroidrpg
 %define	oname	freedroidRPG
-%define version	0.12
+%define version	0.12.1
 %define release	%mkrel 1
 %define	Summary	A Diablo clone with the Tux as hero in a world of rampaging robots
 
