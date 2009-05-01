@@ -21,6 +21,7 @@ BuildRequires:	SDL_image-devel SDL_net-devel SDL_mixer-devel
 BuildRequires:	gtk+-devel Mesa-common-devel
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
+BuildRequires:	gettext-devel
 Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Obsoletes:	%{oname}
 Provides:	%{oname} = %{version}-%{release}
@@ -54,7 +55,6 @@ over your enemies and have them fight on your side."
 rm -rf `find -name .xvpics`
 
 %build
-autoreconf -fi
 %configure2_5x	--bindir=%{_gamesbindir} \
 		--datadir=%{_gamesdatadir}
 make clean
