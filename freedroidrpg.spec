@@ -51,7 +51,7 @@ over your enemies and have them fight on your side."
 
 %prep
 %setup -q
-%patch0 -p1 -b .strfmt
+# %patch0 -p1 -b .strfmt
 rm -rf `find -name .xvpics`
 
 %build
