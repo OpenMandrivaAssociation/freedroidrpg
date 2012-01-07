@@ -109,3 +109,4 @@ rm -rf %{buildroot}
 %{_gamesdatadir}/%{name}/dialogs
 %defattr(755,root,root,755)
 %{_gamesbindir}/*
+%{_mandir}/man6/freedroidRPG.6.*
