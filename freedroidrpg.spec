@@ -1,13 +1,11 @@
-%define name	freedroidrpg
 %define	oname	freedroidRPG
-%define version	0.15
-%define release	%mkrel 1
-%define	Summary	A Diablo clone with the Tux as hero in a world of rampaging robots
 
-Summary:	%{Summary}
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
+Summary:	Summary A Diablo clone with the Tux as hero in a world of rampaging robots
+Name:		freedroidrpg
+Version:	0.15
+Release:	%mkrel 1
+Group:		Games/Adventure
+License:	GPL
 URL:		http://freedroid.sourceforge.net/
 Source0:	%{name}-%{version}.tar.bz2
 #Source1:	%{name_lower}-0.9.2.voicesamples.tar.bz2
@@ -15,16 +13,14 @@ Source11:	%{name}-16x16.png
 Source12:	%{name}-32x32.png
 Source13:	%{name}-48x48.png
 Patch0:		freedroidrpg-0.13-string-format.patch
-License:	GPL
-Group:		Games/Adventure
 BuildRequires:	SDL_image-devel SDL_net-devel SDL_mixer-devel SDL_gfx-devel
-BuildRequires:	gtk+-devel Mesa-common-devel
+BuildRequires:	gtk+-devel
+BuildRequires:	pkgconfig(gl)
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	gettext-devel
-Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-Obsoletes:	%{oname}
-Provides:	%{oname} = %{version}-%{release}
+
+%rename	%{oname}
 
 %description
 FreeDroidRPG is a free isometric RPG game inspired by elements of Diablo and
@@ -47,16 +43,15 @@ Fallout's. The dialogues in the game represent a large part of the gameplay.
 Finally, if guns are too inaccurate and blades too messy, you can always take
 over your enemies and have them fight on your side."
 
-
-
 %prep
 %setup -q
 # %patch0 -p1 -b .strfmt
 rm -rf `find -name .xvpics`
 
 %build
-%configure2_5x	--bindir=%{_gamesbindir} \
-		--datadir=%{_gamesdatadir}
+%configure2_5x \
+	--bindir=%{_gamesbindir} \
+	--datadir=%{_gamesdatadir}
 make clean
 %make
 
@@ -81,19 +76,6 @@ install %{SOURCE11} -D %{buildroot}%{_miconsdir}/%{name}.png
 install %{SOURCE12} -D %{buildroot}%{_iconsdir}/%{name}.png
 install %{SOURCE13} -D %{buildroot}%{_liconsdir}/%{name}.png
 
-%clean
-rm -rf %{buildroot}
-
-%if %mdkversion < 200900
-%post
-%{update_menus}
-%endif
-
-%if %mdkversion < 200900
-%postun
-%{clean_menus}
-%endif
-
 %files -n %{name}
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
@@ -110,3 +92,4 @@ rm -rf %{buildroot}
 %defattr(755,root,root,755)
 %{_gamesbindir}/*
 %{_mandir}/man6/freedroidRPG.6.*
+
