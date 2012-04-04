@@ -2,17 +2,15 @@
 
 Summary:	Summary A Diablo clone with the Tux as hero in a world of rampaging robots
 Name:		freedroidrpg
-Version:	0.15
+Version:	0.15.1
 Release:	%mkrel 1
 Group:		Games/Adventure
 License:	GPL
 URL:		http://freedroid.sourceforge.net/
-Source0:	%{name}-%{version}.tar.bz2
-#Source1:	%{name_lower}-0.9.2.voicesamples.tar.bz2
+Source0:	%{oname}-%{version}.tar.gz
 Source11:	%{name}-16x16.png
 Source12:	%{name}-32x32.png
 Source13:	%{name}-48x48.png
-Patch0:		freedroidrpg-0.13-string-format.patch
 BuildRequires:	SDL_image-devel SDL_net-devel SDL_mixer-devel SDL_gfx-devel
 BuildRequires:	gtk+-devel
 BuildRequires:	pkgconfig(gl)
@@ -45,7 +43,6 @@ over your enemies and have them fight on your side."
 
 %prep
 %setup -q
-# %patch0 -p1 -b .strfmt
 rm -rf `find -name .xvpics`
 
 %build
