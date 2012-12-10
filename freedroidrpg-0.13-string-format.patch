@@ -1,0 +1,61 @@
+diff -ur freedroidrpg-0.13.orig/croppy/croppy.c freedroidrpg-0.13/croppy/croppy.c
+--- freedroidrpg-0.13.orig/croppy/croppy.c	2010-01-21 13:38:46.000000000 +0100
++++ freedroidrpg-0.13/croppy/croppy.c	2010-01-23 21:46:46.000000000 +0100
+@@ -166,7 +166,7 @@
+     {
+       tmp = (char *) MyMalloc (1000000 + 1);
+       vsprintf (tmp, fmt, args);
+-      fprintf ( stdout , tmp );
++      fprintf ( stdout , "%s",tmp );
+       fflush ( stdout );
+       free (tmp);
+     }
+@@ -232,7 +232,7 @@
+ 
+ 	case 'h':
+ 	case '?':
+-	  printf (usage_string);
++	  printf ("%s",usage_string);
+ 	  exit (0);
+ 	  break;
+ 
+@@ -665,7 +665,7 @@
+   //--------------------
+   // Now we must determine the output filename
+   //
+-  sprintf ( filename , input_filename );
++  sprintf ( filename , "%s", input_filename );
+   if ( strstr ( filename , ".png" ) == NULL )
+     strcat ( filename , ".offset" );
+   else
+diff -ur freedroidrpg-0.13.orig/gluem/gluem.c freedroidrpg-0.13/gluem/gluem.c
+--- freedroidrpg-0.13.orig/gluem/gluem.c	2010-01-21 13:38:46.000000000 +0100
++++ freedroidrpg-0.13/gluem/gluem.c	2010-01-23 21:46:46.000000000 +0100
+@@ -618,7 +618,7 @@
+ 		
+ 	    case 'h':
+ 	    case '?':
+-		printf (usage_string);
++		printf ("%s", usage_string);
+ 		exit (0);
+ 		break;
+ 		
+diff -ur freedroidrpg-0.13.orig/src/init.c freedroidrpg-0.13/src/init.c
+--- freedroidrpg-0.13.orig/src/init.c	2010-01-21 13:31:29.000000000 +0100
++++ freedroidrpg-0.13/src/init.c	2010-01-23 21:47:24.000000000 +0100
+@@ -1264,13 +1264,13 @@
+ 			 * following gnu-coding standards for command line interfaces */
+ 		case 'v':
+ 			printf("\n%s %s  \n", PACKAGE, VERSION);
+-			printf(copyright);
++			printf("%s", copyright);
+ 			exit(0);
+ 			break;
+ 
+ 		case 'h':
+ 		case '?':
+-			printf(usage_string);
++			printf("%s", usage_string);
+ 			exit(0);
+ 			break;
+ 
