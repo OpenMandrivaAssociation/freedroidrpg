@@ -27,17 +27,21 @@ BuildRequires:	gettext-devel
 
 %description
 FreeDroidRPG is a free isometric RPG game inspired by elements of Diablo and
-Fallout. Originally based on FreeDroid Classic, this project now has vastly deviated
+Fallout. Originally based on FreeDroid Classic, this project now has vastly
+deviated
 from its parent.
 
 This game tells the story of a world destroyed by a conflict between the bots
-and their human masters. Play as Tux in a quest to save the world from the murderous
-rebel bots who know no mercy. You get to choose which path you wish to follow, and
+and their human masters. Play as Tux in a quest to save the world from the
+murderous
+rebel bots who know no mercy. You get to choose which path you wish to follow,
+and
 freedom of choice is everywhere in the game.
 
 FreeDroidRPG features a complete real time combat system with melee and ranged
 weapons, fairly similar to the proprietary game Diablo. There also is an 
-innovative system of magic, with features such as forced casting and over 20 spells.
+innovative system of magic, with features such as forced casting and over 20
+spells.
 You can use over 50 different kinds of items and fight countless enemies on
 your way to your destiny.
 
