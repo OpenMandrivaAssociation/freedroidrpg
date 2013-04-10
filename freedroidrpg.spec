@@ -3,7 +3,7 @@
 Summary:	Summary A Diablo clone with the Tux as hero in a world of rampaging robots
 Name:		freedroidrpg
 Version:	0.15
-Release:	2
+Release:	3
 Group:		Games/Adventure
 License:	GPL
 URL:		http://freedroid.sourceforge.net/
@@ -28,8 +28,7 @@ BuildRequires:	gettext-devel
 %description
 FreeDroidRPG is a free isometric RPG game inspired by elements of Diablo and
 Fallout. Originally based on FreeDroid Classic, this project now has vastly
-deviated
-from its parent.
+deviated from its parent.
 
 This game tells the story of a world destroyed by a conflict between the bots
 and their human masters. Play as Tux in a quest to save the world from the
