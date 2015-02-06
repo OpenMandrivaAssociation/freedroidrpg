@@ -3,7 +3,7 @@
 Summary:	Summary A Diablo clone with the Tux as hero in a world of rampaging robots
 Name:		freedroidrpg
 Version:	0.15
-Release:	3
+Release:	4
 Group:		Games/Adventure
 License:	GPL
 URL:		http://freedroid.sourceforge.net/
