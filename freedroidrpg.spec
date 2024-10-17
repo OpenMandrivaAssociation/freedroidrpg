@@ -6,7 +6,7 @@ Version:	0.15
 Release:	4
 Group:		Games/Adventure
 License:	GPL
-URL:		http://freedroid.sourceforge.net/
+URL:		https://freedroid.sourceforge.net/
 Source0:	%{name}-%{version}.tar.bz2
 Source11:	%{name}-16x16.png
 Source12:	%{name}-32x32.png
